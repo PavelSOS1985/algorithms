@@ -32,4 +32,16 @@ public class SortLevel {
         }
         return result;
     }
+
+    // one step in sort by insertion
+    public static void InsertionSortStep(int[] array, int step, int i) {
+        if (step < 1 || i < 0 || i > array.length) return;
+        int tempI = array[i];
+        step = step + i; // index for change
+        while (step > array.length - 1) {
+            step = step - array.length;
+        }
+        array[i] = array[step];
+        array[step] = tempI;
+    }
 }

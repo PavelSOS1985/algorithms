@@ -28,4 +28,11 @@ class SortLevelTest {
     void bubbleSortStep() {
         assertFalse(BubbleSortStep(array));
     }
+
+    @Test
+    void insertionSortStep() {
+        InsertionSortStep(array, 7, 1);
+        assertArrayEquals(new int[]{5, 4, 3, 2}, array);
+
+    }
 }
