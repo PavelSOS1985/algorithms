@@ -35,13 +35,13 @@ public class SortLevel {
 
     // one step in sort by insertion
     public static void InsertionSortStep(int[] array, int step, int i) {
-        if (step < 1 || i < 0 || i > array.length) return;
-        int tempI = array[i];
+        if (step < 1 || i < 0 || i >= array.length) return;
         step = step + i; // index for change
-        while (step > array.length - 1) {
-            step = step - array.length;
+        if (step >= array.length) return;
+        if (array[i] > array[step]) {
+            int tempI = array[i];
+            array[i] = array[step];
+            array[step] = tempI;
         }
-        array[i] = array[step];
-        array[step] = tempI;
     }
 }
