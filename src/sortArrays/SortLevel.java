@@ -1,5 +1,7 @@
 package sortArrays;
 
+import java.util.Arrays;
+
 // JAVA 8
 public class SortLevel {
 
@@ -36,12 +38,15 @@ public class SortLevel {
     // one step in sort by insertion
     public static void InsertionSortStep(int[] array, int step, int i) {
         if (step < 1 || i < 0 || i >= array.length) return;
-        step = step + i; // index for change
-        if (step >= array.length) return;
-        if (array[i] > array[step]) {
-            int tempI = array[i];
-            array[i] = array[step];
-            array[step] = tempI;
+        int countIterations = array.length / step;
+        for (int k = 0; k < countIterations; k++) {
+            for (int j = i; j < array.length - step; j += step) {
+                if (array[j] > array[j + step]) {
+                    int tempI = array[j];
+                    array[j] = array[j + step];
+                    array[j + step] = tempI;
+                }
+            }
         }
     }
 }

@@ -11,7 +11,7 @@ class SortLevelTest {
 
     @BeforeEach
     void setUp() {
-        array = new int[]{4, 5, 3, 2};
+        array = new int[]{7,6,5,4,3,2,1};
     }
 
     @AfterEach
@@ -31,15 +31,10 @@ class SortLevelTest {
 
     @Test
     void insertionSortStep() {
-        InsertionSortStep(array, 1, 1);
-        assertArrayEquals(new int[]{4, 3, 5, 2}, array);
-        InsertionSortStep(array, 1, 0);
-        assertArrayEquals(new int[]{3, 4, 5, 2}, array);
-        InsertionSortStep(array, 1, 3);
-        assertArrayEquals(new int[]{3, 4, 5, 2}, array);
-        InsertionSortStep(array, 5, 0);
-        assertArrayEquals(new int[]{3, 4, 5, 2}, array);
-        InsertionSortStep(array, 3, 0);
-        assertArrayEquals(new int[]{2, 4, 5, 3}, array);
+        InsertionSortStep(array, 5, 1);
+        assertArrayEquals(new int[]{7,1,5,4,3,2,6}, array);
+        InsertionSortStep(array, 4, 2);
+        assertArrayEquals(new int[]{7,1,5,4,3,2,6}, array);
+
     }
 }
