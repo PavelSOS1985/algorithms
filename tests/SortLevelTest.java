@@ -42,6 +42,10 @@ class SortLevelTest {
 
     @Test
     void knuthSequence() {
-        KnuthSequence(15);
+        assertEquals(0, KnuthSequence(0).size());
+        assertEquals(1, KnuthSequence(1).size());
+        assertEquals(2, KnuthSequence(13).size());
+        assertEquals(3, KnuthSequence(15).size());
+
     }
 }

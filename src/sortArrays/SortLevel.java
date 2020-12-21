@@ -54,12 +54,12 @@ public class SortLevel {
     // finds interval sequence (Knuth)
     public static ArrayList<Integer> KnuthSequence(int array_size) {
         ArrayList<Integer> resultList = new ArrayList<>();
-        int steps;
-        for (int i = 1; i < array_size; i = steps) {
+        if (array_size < 1) return resultList;
+        int i = 1;
+        do {
             resultList.add(0, i);
-            steps = 3 * i + 1;
-        }
-        System.out.println(resultList);
+            i = 3 * i + 1;
+        } while (i < array_size);
         return resultList;
     }
 }
