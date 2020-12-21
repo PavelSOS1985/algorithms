@@ -4,6 +4,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class SortLevelTest {
@@ -36,5 +38,10 @@ class SortLevelTest {
         InsertionSortStep(array, 4, 2);
         assertArrayEquals(new int[]{7,1,5,4,3,2,6}, array);
 
+    }
+
+    @Test
+    void knuthSequence() {
+        KnuthSequence(15);
     }
 }

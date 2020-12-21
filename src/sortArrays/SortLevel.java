@@ -1,5 +1,6 @@
 package sortArrays;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 // JAVA 8
@@ -48,5 +49,17 @@ public class SortLevel {
                 }
             }
         }
+    }
+
+    // finds interval sequence (Knuth)
+    public static ArrayList<Integer> KnuthSequence(int array_size) {
+        ArrayList<Integer> resultList = new ArrayList<>();
+        int steps;
+        for (int i = 1; i < array_size; i = steps) {
+            resultList.add(0, i);
+            steps = 3 * i + 1;
+        }
+        System.out.println(resultList);
+        return resultList;
     }
 }
