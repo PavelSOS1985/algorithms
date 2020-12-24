@@ -62,4 +62,33 @@ public class SortLevel {
         } while (i < array_size);
         return resultList;
     }
+
+    // algorithm partitioning of the array
+    // when no identical elements in the array
+    public static int ArrayChunk(int[] M) {
+        if (M.length <= 1) return 0;
+        int iN, N, i1, i2;
+        iN = M.length / 2;
+        N = M[iN]; //threshold value
+        i1 = 0;
+        i2 = M.length - 1;
+        while (i1 != i2 || M[i1] > M[i2]) {
+            while (M[i1] < N) i1++;
+            while (M[i2] > N) i2--;
+            if (i1 == i2 - 1 && M[i1] > M[i2]) {
+                int tempEl = M[i1];
+                M[i1] = M[i2];
+                M[i2] = tempEl;
+                i1 = 0;
+                i2 = M.length - 1;
+                continue;
+            }
+            int tempEl1 = M[i1];
+            M[i1] = M[i2];
+            M[i2] = tempEl1;
+            if (M[i1] == N) iN = i1;
+            if (M[i2] == N) iN = i2;
+        }
+        return iN;
+    }
 }

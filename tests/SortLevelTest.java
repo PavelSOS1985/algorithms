@@ -48,4 +48,17 @@ class SortLevelTest {
         assertEquals(3, KnuthSequence(15).size());
 
     }
+
+    @Test
+    void arrayChunk() {
+        assertEquals(3, ArrayChunk(new int[]{7,1,5,4,3,2,6}));
+        assertEquals(2, ArrayChunk(new int[]{7,5,6,4,3,1}));
+        assertEquals(0, ArrayChunk(new int[]{}));
+        assertEquals(0, ArrayChunk(new int[]{55}));
+        assertEquals(0, ArrayChunk(new int[]{55,1,2}));
+        assertEquals(1, ArrayChunk(new int[]{1,6,3,4,7}));
+        assertEquals(3, ArrayChunk(new int[]{1,6,3,0,2}));
+        assertEquals(3, ArrayChunk(new int[]{1,2,3,4,5,6}));
+        assertEquals(2, ArrayChunk(new int[]{6,5,4,3,2,1}));
+    }
 }
