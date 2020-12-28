@@ -72,20 +72,23 @@ public class SortLevel {
         N = M[iN]; //threshold value
         i1 = 0;
         i2 = M.length - 1;
-        while (i1 != i2 || M[i1] > M[i2]) {
+        while (i1 != i2) {
             while (M[i1] < N) i1++;
             while (M[i2] > N) i2--;
             if (i1 == i2 - 1 && M[i1] > M[i2]) {
                 int tempEl = M[i1];
                 M[i1] = M[i2];
                 M[i2] = tempEl;
+                N = M[iN];
                 i1 = 0;
                 i2 = M.length - 1;
                 continue;
             }
+
             int tempEl1 = M[i1];
             M[i1] = M[i2];
             M[i2] = tempEl1;
+
             if (M[i1] == N) iN = i1;
             if (M[i2] == N) iN = i2;
         }
