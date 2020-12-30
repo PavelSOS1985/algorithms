@@ -94,4 +94,40 @@ public class SortLevel {
         }
         return iN;
     }
+
+    public static void QuickSort(int[] array, int left, int right) {
+        if (left >= right || right >= array.length || left < 0) return;
+        int N = ArrayChunkForQS(array, left, right);
+        QuickSort(array, left, N - 1);
+        QuickSort(array, N + 1, right);
+    }
+
+    private static int ArrayChunkForQS(int[] M, int left, int right) {
+        int length = right - left + 1;
+        if (length <= 1) return 0;
+        int iN, N, i1, i2;
+        iN = left + length / 2;
+        N = M[iN]; //threshold value
+        i1 = left;
+        i2 = right;
+        while (i1 != i2) {
+            while (M[i1] < N) i1++;
+            while (M[i2] > N) i2--;
+            if (i1 == i2 - 1 && M[i1] > M[i2]) {
+                int tempEl = M[i1];
+                M[i1] = M[i2];
+                M[i2] = tempEl;
+                N = M[iN];
+                i1 = left;
+                i2 = right;
+                continue;
+            }
+            int tempEl1 = M[i1];
+            M[i1] = M[i2];
+            M[i2] = tempEl1;
+            if (M[i1] == N) iN = i1;
+            if (M[i2] == N) iN = i2;
+        }
+        return iN;
+    }
 }
