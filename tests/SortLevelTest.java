@@ -80,4 +80,11 @@ class SortLevelTest {
         assertArrayEquals(new int[]{0,1,3,7,15,22,31}, array);
 
     }
+
+    @Test
+    void quickSortTailOptimization() {
+        array = new int[]{1,0,15,31,3,22,7};
+        QuickSortTailOptimization(array,0,6);
+        assertArrayEquals(new int[]{0,1,3,7,15,22,31}, array);
+    }
 }

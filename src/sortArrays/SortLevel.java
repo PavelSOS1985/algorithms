@@ -95,6 +95,7 @@ public class SortLevel {
         return iN;
     }
 
+    //
     public static void QuickSort(int[] array, int left, int right) {
         if (left >= right || right >= array.length || left < 0) return;
         int N = ArrayChunkForQS(array, left, right);
@@ -129,5 +130,20 @@ public class SortLevel {
             if (M[i2] == N) iN = i2;
         }
         return iN;
+    }
+
+    //
+    public static void QuickSortTailOptimization(int[] array, int left, int right) {
+        if (left >= right || right >= array.length || left < 0) return;
+        while (left < right) {
+            int N = ArrayChunkForQS(array, left, right);
+            if (N - left < right - N) {
+                QuickSortTailOptimization(array, left, N - 1);
+                left = N + 1;
+            } else {
+                QuickSortTailOptimization(array, N + 1, right);
+                right = N - 1;
+            }
+        }
     }
 }
