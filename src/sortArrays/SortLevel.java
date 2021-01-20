@@ -150,8 +150,8 @@ public class SortLevel {
     // One step in search for ordinal statistics
     public static ArrayList<Integer> KthOrderStatisticsStep(int[] Array, int L, int R, int k) {
         int N = ArrayChunk(Array);
-        if (N == k) return new ArrayList<Integer>(Arrays.asList(N, N));
-        if (N < k) return new ArrayList<Integer>(Arrays.asList(N + 1, N));
-        return new ArrayList<Integer>(Arrays.asList(N, N - 1));
+        if (N == k) return new ArrayList<>(Arrays.asList(N, N));
+        if (N < k) return new ArrayList<>(Arrays.asList(N + 1, R));
+        return new ArrayList<>(Arrays.asList(L, N - 1));
     }
 }
