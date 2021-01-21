@@ -95,9 +95,8 @@ class SortLevelTest {
         ArrayList<Integer> list2 = new ArrayList<>(Arrays.asList(0, 2));
         assertArrayEquals(list.toArray(), list2.toArray());
 
-        array = new int[]{3,5,2,4,1};
-        list = KthOrderStatisticsStep(array, 0, 4, 0);
-        list2 = new ArrayList<>(Arrays.asList(0, 3));
+        list = KthOrderStatisticsStep(array, list.get(0), list.get(1), 0);
+        list2 = new ArrayList<>(Arrays.asList(0, 0));
         assertArrayEquals(list.toArray(), list2.toArray());
     }
 }
