@@ -14,7 +14,7 @@ class SortLevelTest {
 
     @BeforeEach
     void setUp() {
-        array = new int[]{7,6,5,4,3,2,1};
+        array = new int[]{7, 6, 5, 4, 3, 2, 1};
     }
 
     @AfterEach
@@ -35,9 +35,9 @@ class SortLevelTest {
     @Test
     void insertionSortStep() {
         InsertionSortStep(array, 5, 1);
-        assertArrayEquals(new int[]{7,1,5,4,3,2,6}, array);
+        assertArrayEquals(new int[]{7, 1, 5, 4, 3, 2, 6}, array);
         InsertionSortStep(array, 4, 2);
-        assertArrayEquals(new int[]{7,1,5,4,3,2,6}, array);
+        assertArrayEquals(new int[]{7, 1, 5, 4, 3, 2, 6}, array);
 
     }
 
@@ -58,7 +58,7 @@ class SortLevelTest {
         assertEquals(0, ArrayChunk(new int[]{}));
         assertEquals(0, ArrayChunk(new int[]{55}));
         assertEquals(2, ArrayChunk(new int[]{1,6,3,4,7}));*/
-       // assertEquals(0, ArrayChunk(new int[]{1,6,3,0,2}));
+        // assertEquals(0, ArrayChunk(new int[]{1,6,3,0,2}));
         //assertEquals(3, ArrayChunk(new int[]{1,0,15,31,3,22,7}));
         /*assertEquals(3, ArrayChunk(new int[]{1,2,3,4,5,6}));
         assertEquals(3, ArrayChunk(new int[]{6,5,4,3,2,1}));
@@ -68,23 +68,36 @@ class SortLevelTest {
 
     @Test
     void quickSort() {
-        array = new int[]{1,0,15,31,3,22,7};
+        array = new int[]{1, 0, 15, 31, 3, 22, 7};
 
-        QuickSort(array,0,2);
-        assertArrayEquals(new int[]{0,1,15,31,3,22,7}, array);
+        QuickSort(array, 0, 2);
+        assertArrayEquals(new int[]{0, 1, 15, 31, 3, 22, 7}, array);
 
-        QuickSort(array,3,6);
-        assertArrayEquals(new int[]{0,1,15,3,7,22,31}, array);
+        QuickSort(array, 3, 6);
+        assertArrayEquals(new int[]{0, 1, 15, 3, 7, 22, 31}, array);
 
-        QuickSort(array,0,6);
-        assertArrayEquals(new int[]{0,1,3,7,15,22,31}, array);
+        QuickSort(array, 0, 6);
+        assertArrayEquals(new int[]{0, 1, 3, 7, 15, 22, 31}, array);
 
     }
 
     @Test
     void quickSortTailOptimization() {
-        array = new int[]{1,0,15,31,3,22,7};
-        QuickSortTailOptimization(array,0,6);
-        assertArrayEquals(new int[]{0,1,3,7,15,22,31}, array);
+        array = new int[]{1, 0, 15, 31, 3, 22, 7};
+        QuickSortTailOptimization(array, 0, 6);
+        assertArrayEquals(new int[]{0, 1, 3, 7, 15, 22, 31}, array);
+    }
+
+    @Test
+    void kthOrderStatisticsStep() {
+        array = new int[]{5,6,7,4,1,2,3};
+        ArrayList<Integer> list = KthOrderStatisticsStep(array, 0, 3, 0);
+        ArrayList<Integer> list2 = new ArrayList<>(Arrays.asList(0, 2));
+        assertArrayEquals(list.toArray(), list2.toArray());
+
+        array = new int[]{3,5,2,4,1};
+        list = KthOrderStatisticsStep(array, 0, 4, 0);
+        list2 = new ArrayList<>(Arrays.asList(0, 3));
+        assertArrayEquals(list.toArray(), list2.toArray());
     }
 }
